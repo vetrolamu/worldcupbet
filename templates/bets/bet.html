@@ -6,7 +6,7 @@
 <form action="/bets/{{ game.id }}/save" method="post">
     {% csrf_token %}
 <input name = "game" value="{{ game.id }}" hidden >
-    <table>
+    <table class = "make-bet">
         <thead>
             <tr>
                 <th>Team</th>

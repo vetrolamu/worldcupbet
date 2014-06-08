@@ -23,21 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/worldcupbet/settings.py">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bets/static/bets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="27" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.51952463" vertical-offset="1173" max-vertical-offset="2567">
-              <folding>
-                <element signature="e#346#355#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/worldcupbet/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="10" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+            <state line="66" column="17" selection-start="1650" selection-end="1650" vertical-scroll-proportion="-20.44" vertical-offset="611" max-vertical-offset="6375">
               <folding />
             </state>
           </provider>
@@ -46,7 +35,7 @@
       <file leaf-file-name="navigation.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/bets/navigation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="24" selection-start="42" selection-end="42" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="187">
+            <state line="12" column="64" selection-start="392" selection-end="392" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="374">
               <folding />
             </state>
           </provider>
@@ -55,7 +44,7 @@
       <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="55" selection-start="149" selection-end="149" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="204">
+            <state line="4" column="0" selection-start="82" selection-end="176" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
@@ -64,16 +53,16 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="66" selection-start="392" selection-end="392" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="697">
+            <state line="19" column="69" selection-start="566" selection-end="566" vertical-scroll-proportion="-5.0" vertical-offset="68" max-vertical-offset="680">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bets/urls.py">
+      <file leaf-file-name="logout.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/registration/logout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="26" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+            <state line="8" column="14" selection-start="123" selection-end="123" vertical-scroll-proportion="0.23129252" vertical-offset="0" max-vertical-offset="588">
               <folding />
             </state>
           </provider>
@@ -82,7 +71,7 @@
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bets/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="0" selection-start="3339" selection-end="3339" vertical-scroll-proportion="-8.52" vertical-offset="1708" max-vertical-offset="3264">
+            <state line="120" column="39" selection-start="3529" selection-end="3529" vertical-scroll-proportion="0.0" vertical-offset="1783" max-vertical-offset="3298">
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -90,27 +79,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="breadcrumbImage.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bets/static/bets/css/breadcrumbImage.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="bet.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/bets/bet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="19" selection-start="61" selection-end="98" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="1207">
-              <folding>
-                <marker date="1402255311972" expanded="true" signature="153:2309" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="238:2265" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="254:466" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="271:449" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="482:2252" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="499:1344" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="724:1014" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="754:1009" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1035:1326" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1066:1321" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1361:2235" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1598:1896" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1631:1891" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1917:2217" placeholder="..." />
-                <marker date="1402255311972" expanded="true" signature="1951:2212" placeholder="..." />
-              </folding>
+            <state line="22" column="0" selection-start="774" selection-end="774" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="1207">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,7 +98,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/bets/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="12" selection-start="449" selection-end="450" vertical-scroll-proportion="-0.6666667" vertical-offset="476" max-vertical-offset="1768">
+            <state line="24" column="21" selection-start="511" selection-end="516" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="1428">
               <folding />
             </state>
           </provider>
@@ -127,7 +107,7 @@
       <file leaf-file-name="overall.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/bets/overall.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-11.115385" vertical-offset="357" max-vertical-offset="1479">
+            <state line="9" column="0" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="1479">
               <folding />
             </state>
           </provider>
@@ -158,7 +138,6 @@
         <option value="$PROJECT_DIR$/templates/registration/activation_complete.html" />
         <option value="$PROJECT_DIR$/templates/registration/activation_email.txt" />
         <option value="$PROJECT_DIR$/templates/registration/activation_email_subject.txt" />
-        <option value="$PROJECT_DIR$/templates/registration/logout.html" />
         <option value="$PROJECT_DIR$/templates/registration/password_change_done.html" />
         <option value="$PROJECT_DIR$/templates/registration/password_change_form.html" />
         <option value="$PROJECT_DIR$/templates/registration/password_reset_complete.html" />
@@ -169,15 +148,20 @@
         <option value="$PROJECT_DIR$/templates/registration/password_reset_email.html" />
         <option value="$PROJECT_DIR$/templates/registration/password_reset_done.html" />
         <option value="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" />
+        <option value="$PROJECT_DIR$/worldcupbet/urls.py" />
+        <option value="$PROJECT_DIR$/static/css/styles.css" />
+        <option value="$PROJECT_DIR$/worldcupbet/settings.py" />
+        <option value="$PROJECT_DIR$/bets/static/bets/style.css" />
         <option value="$PROJECT_DIR$/templates/bets/index.html" />
+        <option value="$PROJECT_DIR$/bets/static/bets/js/scripts.js" />
         <option value="$PROJECT_DIR$/templates/bets/bet.html" />
         <option value="$PROJECT_DIR$/templates/bets/overall.html" />
         <option value="$PROJECT_DIR$/bets/views.py" />
-        <option value="$PROJECT_DIR$/worldcupbet/urls.py" />
-        <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/templates/bets/navigation.html" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/bets/static/bets/css/style.css" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/worldcupbet/settings.py" />
+        <option value="$PROJECT_DIR$/templates/registration/logout.html" />
       </list>
     </option>
   </component>
@@ -310,6 +294,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldcupbet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldcupbet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldcupbet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldcupbet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -334,6 +370,8 @@
       <recent name="C:\Users\Alexey\PycharmProjects\worldcupbet\templates\bets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexey\PycharmProjects\worldcupbet\bets\static\bets\css" />
+      <recent name="C:\Users\Alexey\PycharmProjects\worldcupbet\bets\static" />
       <recent name="C:\Users\Alexey\PycharmProjects\worldcupbet\templates\bets" />
     </key>
   </component>
@@ -576,7 +614,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17135416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -592,6 +630,26 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39915523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32418162" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17135416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32418162" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -608,24 +666,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bets/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wcb-venv/Lib/site-packages/django/core/urlresolvers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="595" column="0" selection-start="23173" selection-end="23173" vertical-scroll-proportion="0.0" vertical-offset="9470" max-vertical-offset="10013">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/wcb-venv/Lib/site-packages/django/middleware/common.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="0" selection-start="2640" selection-end="2640" vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="2873">
@@ -807,13 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/logout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="109" selection-end="109" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="187">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/password_change_done.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="14" selection-start="115" selection-end="115" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="187">
@@ -893,25 +930,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bets/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="0" selection-start="3339" selection-end="3339" vertical-scroll-proportion="-8.52" vertical-offset="1708" max-vertical-offset="3264">
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bets/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="26" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bets/overall.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="1005" selection-end="1005" vertical-scroll-proportion="-11.115385" vertical-offset="357" max-vertical-offset="1479">
           <folding />
         </state>
       </provider>
@@ -923,63 +944,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bets/index.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="12" selection-start="449" selection-end="450" vertical-scroll-proportion="-0.6666667" vertical-offset="476" max-vertical-offset="1768">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bets/bet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="19" selection-start="61" selection-end="98" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="1207">
-          <folding>
-            <marker date="1402255311972" expanded="true" signature="153:2309" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="238:2265" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="254:466" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="271:449" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="482:2252" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="499:1344" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="724:1014" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="754:1009" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1035:1326" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1066:1321" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1361:2235" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1598:1896" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1631:1891" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1917:2217" placeholder="..." />
-            <marker date="1402255311972" expanded="true" signature="1951:2212" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="55" selection-start="149" selection-end="149" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/bets/navigation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="24" selection-start="42" selection-end="42" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="187">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="66" selection-start="392" selection-end="392" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="697">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3757">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worldcupbet/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="27" selection-start="2904" selection-end="2904" vertical-scroll-proportion="0.51952463" vertical-offset="1173" max-vertical-offset="2567">
+        <state line="48" column="0" selection-start="1943" selection-end="1943" vertical-scroll-proportion="-3.84" vertical-offset="720" max-vertical-offset="2567">
           <folding>
             <element signature="e#346#355#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bets/static/bets/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+            <marker date="1402265298458" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bets/static/bets/css/breadcrumbImage.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bets/overall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="165" selection-end="165" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="1479">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bets/bet.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="774" selection-end="774" vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bets/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="39" selection-start="3529" selection-end="3529" vertical-scroll-proportion="0.0" vertical-offset="1783" max-vertical-offset="3298">
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bets/navigation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="64" selection-start="392" selection-end="392" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="374">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bets/static/bets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="17" selection-start="1650" selection-end="1650" vertical-scroll-proportion="-20.44" vertical-offset="611" max-vertical-offset="6375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/bets/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="21" selection-start="511" selection-end="516" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="1428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="82" selection-end="176" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="69" selection-start="566" selection-end="566" vertical-scroll-proportion="-5.0" vertical-offset="68" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/logout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="14" selection-start="123" selection-end="123" vertical-scroll-proportion="0.23129252" vertical-offset="0" max-vertical-offset="588">
+          <folding />
         </state>
       </provider>
     </entry>

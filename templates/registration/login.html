@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-<form method="post" action=".">
-<a href="{% url 'socialauth_begin' 'vk-oauth' %}?next=/">{% trans "Login via VK" %}</a>
-</form>
+<div class="login">
+
+<a class="vk" href="{% url 'socialauth_begin' 'vk-oauth' %}?next=/">Войти через Вконтакте</a>
+
+</div>
 {% endblock %}

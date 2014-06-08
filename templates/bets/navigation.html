@@ -1,6 +1,16 @@
-<header>
+<div class = "top-menu">
+  <span class="left"></span>
     <ul>
-        <li><a href = "/">Personal Stats</a></li>
-        <li><a href = "/bets/overall/">Full ranking table</a></li>
+        <li class = "
+            {% if page == "index" %}
+                active
+            {% endif %}
+        "><a href = "/">Personal Stats</a></li>
+        <li class = "last
+            {% if page == "overall" %}
+               active
+            {% endif %}
+        "><a href = "/bets/overall/">Full ranking table</a></li>
     </ul>
-</header>
+  <span class="right"></span>
+</div>

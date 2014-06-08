@@ -100,6 +100,7 @@ def index(request):
 
     current_time = time.strftime('%d.%m.%Y %H:%M:%S', current_time)
     context = RequestContext(request, {
+        'page' : 'index',
         'user_stats': user_stats,
         'current_time': current_time
     })
@@ -118,6 +119,7 @@ def overall(request):
         all_users_stats.append(get_user_stats(request.user, user, games))
 
     context = RequestContext(request, {
+        'page' : 'overall',
         'games': games,
         'all_users_stats': all_users_stats,
         'me': request.user
@@ -164,7 +166,7 @@ def save_bet(request, game_id):
 
     new_bet.save()
 
-    return HttpResponseRedirect("/bets/")
+    return HttpResponseRedirect("/")
 
 @login_required
 def bet(request, game_id):

@@ -3,23 +3,13 @@
 {% block content %}
 {% include "bets/navigation.html" %}
 
-<style>
-
-    .prediction, .score{
-        text-align: center;
-    }
-    .prediction.final{
-        background: #eee;
-    }
-
-</style>
 
 
 {% if user_stats %}
 
 
 
-    <table>
+    <table class = "personal-stats">
     <thead>
     <tr>
         <th>Game starts</th>
@@ -30,19 +20,20 @@
     </thead>
     {% for user_bet in user_stats.user_bets %}
     <tbody>
-        <tr>
+        <tr data-game-id = "{{ user_bet.game.id }}" class = "
+            {% if not user_bet.show_link %}
+                final
+            {% else %}
+                available-to-bet
+            {% endif %}
+            "
+        >
             <td>{{ user_bet.game.local_time  }}</td>
-            <td align = "right">
-                {% if user_bet.show_link %}
-                    <a href="/bets/{{ user_bet.game.id }}/">
-                {% endif %}
+            <td class = "home">
                     {{ user_bet.game.home }}
 
-                {% if user_bet.show_link %}
-                    </a>
-                {% endif %}
             </td>
-            <td>{% if user_bet.game.home_ft_score %}
+            <td class = "game-score">{% if user_bet.game.home_ft_score %}
                     {{ user_bet.game.home_ft_score }}
                 {% else %}
                     -
@@ -54,24 +45,13 @@
                     -
                 {% endif %}
             </td>
-            <td>
-                {% if user_bet.show_link %}
-                    <a href="/bets/{{ user_bet.game.id }}/">
-                {% endif %}
+            <td  class = "visitor">
 
                 {{ user_bet.game.visitor }}
 
-                {% if user_bet.show_link %}
-                    </a>
-                {% endif %}
-            </a>
             </td>
 
-            <td class = "prediction
-                {% if not user_bet.show_link %}
-                    final
-                {% endif %}
-            ">
+            <td class = "prediction">
                 {% if user_bet.bet.home_ft_score != None  %}
                     {{ user_bet.bet.home_ft_score }}
                 {% else %}
@@ -84,7 +64,7 @@
                     -
                 {% endif %}
             </td>
-        <td class="score">
+        <td class="user-score">
            {{ user_bet.score }}
         </td>
         </tr>

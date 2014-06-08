@@ -1,24 +1,24 @@
 {% load i18n %}
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-    <link rel="stylesheet" href="{{ STATIC_URL }}style.css" />
-    <title>{% block title %}User test{% endblock %}</title>
+    <script src="http://yandex.st/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'bets/js/scripts.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bets/css/style.css' %}" />
+
+    <title>{% block title %}Bets: World Cup 2014{% endblock %}</title>
 </head>
 
 <body>
     <header>
     {% block header %}
-    <a href="{% url 'index' %}">{% trans "Home" %}</a> | 
 
     {% if user.is_authenticated %}
-        {% trans "Logged in" %}: {{ user.first_name }}  {{ user.last_name }}
+        {{ user.first_name }}  {{ user.last_name }}
         (<a href="{% url 'auth_logout' %}">{% trans "Log out" %}</a>)
-    {% else %}
-       <a href="{% url 'auth_login' %}">{% trans "Log in" %}</a>
     {% endif %}
-    <hr />
     {% endblock %}
     </header>
 
@@ -28,7 +28,6 @@
 
     <footer>
     {% block footer %}
-        <hr />
     {% endblock %}
     </footer>
 </body>
