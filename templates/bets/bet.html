@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+{% include "bets/navigation.html" %}
+
+<form action="/bets/{{ game.id }}/save" method="post">
+    {% csrf_token %}
+<input name = "game" value="{{ game.id }}" hidden >
+    <table>
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Goals (full time)</th>
+                <th>Goals (extra time)</th>
+                <th>Goals (penalties)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ game.home  }}</td>
+                <td><input name = "home_ft_score" value="{% if existing_bet and existing_bet.home_ft_score %}{{ existing_bet.home_ft_score  }}{% endif %}"/></td>
+                <td><input name = "home_et_score"
+
+
+                    {% if game.id <= 48 %}
+                        disabled
+                    {% endif %}
+
+                    value="{% if existing_bet and existing_bet.home_et_score %}{{ existing_bet.home_et_score  }}{% endif %}"
+
+                /></td>
+                <td><input name = "home_pen_score"
+
+                    {% if game.id <= 48 %}
+                        disabled
+                    {% endif %}
+
+                    value="{% if existing_bet and existing_bet.home_pen_score %}{{ existing_bet.home_pen_score  }}{% endif %}"
+                /></td>
+            </tr>
+            <tr>
+                <td>{{ game.visitor  }}</td>
+                <td><input name = "visitor_ft_score" value="{% if existing_bet and existing_bet.visitor_ft_score %}{{ existing_bet.visitor_ft_score  }}{% endif %}"/></td>
+                <td><input name = "visitor_et_score"
+
+
+                    {% if game.id <= 48 %}
+                        disabled
+                    {% endif %}
+
+                    value="{% if existing_bet and existing_bet.visitor_et_score %}{{ existing_bet.visitor_et_score  }}{% endif %}"
+                /></td>
+                <td><input name = "visitor_pen_score"
+
+                    {% if game.id <= 48 %}
+                        disabled
+                    {% endif %}
+
+                    value="{% if existing_bet and existing_bet.visitor_pen_score %}{{ existing_bet.visitor_pen_score  }}{% endif %}"
+                /></td>
+            </tr>
+        </tbody>
+    </table>
+<button type="submit">Save</button>
+</form>
+{% endblock %}

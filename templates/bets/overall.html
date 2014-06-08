@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+{% include "bets/navigation.html" %}
+<style>
+    .has-bet{
+        background: #eeee99;
+    }
+</style>
+
+    <table border="1" cellpadding = 3 cellspacing = 0>
+    <thead>
+        <tr>
+            <th rowspan="2"></th>
+             {% for game in games %}
+                <th colspan = 2>{{ game.home.short_name }} - {{ game.visitor.short_name }}<br>
+
+                ({% if game.home_ft_score %}
+                    {{ game.home_ft_score }}
+                {% else %}
+                    -
+                {% endif %}
+                :
+                {% if game.visitor_ft_score %}
+                    {{ game.visitor_ft_score }}
+                {% else %}
+                    -
+                {% endif %})</th>
+             {% endfor %}
+
+                <th rowspan="2">Overall score</th>
+        </tr>
+        <tr>
+
+             {% for game in games %}
+                <th>Bet</th>
+                <th>Score</th>
+             {% endfor %}
+
+        </tr>
+    </thead>
+    <tbody>
+    {% for user_stats in all_users_stats %}
+        <tr>
+            <td>{{ user_stats.user.first_name }} {{ user_stats.user.last_name }}</td>
+             {% for user_bet in user_stats.user_bets %}
+                <td align = "center" class = "
+                {% if user_bet.bet %}
+                      has-bet
+                {% endif %}
+                ">
+
+                {% if user_bet.show_link %}
+                    <a href = "/bets/{{ user_bet.bet.game.id }}">
+                {% endif %}
+
+                {% if  user_bet.show_bet == True  and user_bet.bet %}
+
+                    {{ user_bet.bet.home_ft_score }}
+                        :
+                    {{ user_bet.bet.visitor_ft_score }}
+
+                {% endif %}
+
+                </a>
+                </td>
+                 <td>
+                {% if user_bet.bet.game.home_ft_score and user_bet.bet.game.visitor_ft_score %}
+                    {{ user_bet.score }}
+                {% endif %}
+
+                </td>
+             {% endfor %}
+                <td>
+                    {{ user_stats.overall_score }}
+                </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}

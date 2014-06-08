@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1634783111">
+    <data-source source="LOCAL" name="Django default" uuid="4508045a-6e9f-45b9-a7b4-4d42ce17f5b8">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Alexey\PycharmProjects\worldcupbet\db.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
