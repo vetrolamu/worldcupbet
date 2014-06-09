@@ -5,12 +5,19 @@
             {% if page == "index" %}
                 active
             {% endif %}
-        "><a href = "/">Personal Stats</a></li>
-        <li class = "last
+        "><a href = "/">Матчи</a></li>
+
+        <li class = "
             {% if page == "overall" %}
                active
             {% endif %}
-        "><a href = "/bets/overall/">Full ranking table</a></li>
+        "><a href = "/bets/overall/">Сводная таблица</a></li>
+
+        <li class = "last
+            {% if page == "rules" %}
+               active
+            {% endif %}
+        "><a href = "/bets/rules/">Правила</a></li>
     </ul>
   <span class="right"></span>
 </div>

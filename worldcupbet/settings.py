@@ -55,6 +55,13 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/bets/static/'
 
+CORRECT_SCORE = 5
+CORRECT_DIFFERENCE = 2
+CORRECT_RESULT = 1
+BONUS_POINTS = 1
+INCORRECT_RESULT = 0
+GROUP_GAMES = 48
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 

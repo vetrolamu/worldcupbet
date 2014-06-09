@@ -40,7 +40,12 @@
     </thead>
     <tbody>
     {% for user_stats in all_users_stats %}
-        <tr>
+        <tr class = "
+                {% if "free" in user_stats.user_groups %}
+                      free
+                {% endif %}
+
+          ">
             <td>{{ user_stats.user.first_name }} {{ user_stats.user.last_name }}</td>
              {% for user_bet in user_stats.user_bets %}
                 <td align = "center" class = "
@@ -55,9 +60,11 @@
 
                 {% if  user_bet.show_bet == True  and user_bet.bet %}
 
-                    {{ user_bet.bet.home_ft_score }}
+
+
+                    <span class = "{% if user_bet.bet.winner == 0 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">{{ user_bet.bet.home_ft_score }}</span>
                         :
-                    {{ user_bet.bet.visitor_ft_score }}
+                    <span class = "{% if user_bet.bet.winner == 1 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">{{ user_bet.bet.visitor_ft_score }}</span>
 
                 {% endif %}
 

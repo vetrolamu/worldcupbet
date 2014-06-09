@@ -11,10 +11,10 @@
     <table class = "personal-stats">
     <thead>
     <tr>
-        <th>Game starts</th>
-        <th colspan="3">Game</th>
-        <th>Your prediction</th>
-        <th>Your score</th>
+        <th>Время начала</th>
+        <th colspan="3">Игра</th>
+        <th>Моя ставка</th>
+        <th>Очки</th>
     </tr>
     </thead>
     {% for user_bet in user_stats.user_bets %}
@@ -32,17 +32,22 @@
                     {{ user_bet.game.home }}
 
             </td>
-            <td class = "game-score">{% if user_bet.game.home_ft_score %}
+            <td class = "game-score">
+                <span class = "{% if user_bet.game.winner == 0 and user_bet.game.id > GROUP_GAMES %}winner{% endif %}">
+                {% if user_bet.game.home_ft_score %}
                     {{ user_bet.game.home_ft_score }}
                 {% else %}
                     -
                 {% endif %}
+                </span>
                 :
+                <span class = "{% if user_bet.game.winner == 1 and user_bet.game.id > GROUP_GAMES %}winner{% endif %}">
                 {% if user_bet.game.home_ft_score %}
                     {{ user_bet.game.visitor_ft_score }}
                 {% else %}
                     -
                 {% endif %}
+                </span>
             </td>
             <td  class = "visitor">
 
@@ -51,17 +56,25 @@
             </td>
 
             <td class = "prediction">
+
+
+
+                <span class = "{% if user_bet.bet.winner == 0 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">
                 {% if user_bet.bet.home_ft_score != None  %}
                     {{ user_bet.bet.home_ft_score }}
                 {% else %}
+
                     -
                 {% endif %}
+                </span>
                 :
+                <span class = "{% if user_bet.bet.winner == 1 and user_bet.bet.game.id > GROUP_GAMES %}winner{% endif %}">
                 {% if user_bet.bet.visitor_ft_score != None %}
                     {{ user_bet.bet.visitor_ft_score }}
                 {% else %}
                     -
                 {% endif %}
+                </span>
             </td>
         <td class="user-score">
            {{ user_bet.score }}

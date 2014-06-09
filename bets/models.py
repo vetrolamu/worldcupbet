@@ -18,6 +18,7 @@ class Game(models.Model):
     visitor_et_score = models.CharField(max_length=3, null=True, blank=True)
     home_pen_score = models.CharField(max_length=3, null=True, blank=True)
     visitor_pen_score = models.CharField(max_length=3, null=True, blank=True)
+    winner = models.CharField(max_length=1, null=True, blank=True)
     def __unicode__(self):
         return self.home.name + " - " + self.visitor.name
 
@@ -31,5 +32,6 @@ class Bet(models.Model):
     visitor_et_score = models.CharField(max_length=3, null=True, blank=True)
     home_pen_score = models.CharField(max_length=3, null=True, blank=True)
     visitor_pen_score = models.CharField(max_length=3, null=True, blank=True)
+    winner = models.CharField(max_length=1, null=True, blank=True)
     def __unicode__(self):
         return self.user.username + ": " + str(self.game)

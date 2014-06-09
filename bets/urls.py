@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'^(?P<game_id>\d+)/$', views.bet, name='detail'),
     url(r'^(?P<game_id>\d+)/save$', views.save_bet, name='save_bet'),
-    url(r'^overall', views.overall, name='overall')
+    url(r'^overall', views.overall, name='overall'),
+    url(r'^rules', views.rules, name='rules')
 )

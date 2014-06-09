@@ -8,6 +8,7 @@ import time
 import pytz
 from django.http import Http404
 from django.contrib.auth.models import User
+from django.conf import settings
 
 from datetime import datetime
 
@@ -19,25 +20,35 @@ def utc_to_local(utc_dt):
     return local_tz.normalize(local_dt) # .normalize might be unnecessary
 
 def get_score(bet, game):
-
+    bonus_points = 0
+    try:
+        if game.id > settings.GROUP_GAMES:
+            bet.winner = int(bet.winner)
+            game.winner = int(game.winner)
+            if bet.winner == game.winner:
+                bonus_points = settings.BONUS_POINTS
+            else:
+                bonus_points = 0
+    except:
+        bonus_points = 0
     try:
         bet.home_ft_score = int(bet.home_ft_score)
         bet.visitor_ft_score = int(bet.visitor_ft_score)
         game.home_ft_score = int(game.home_ft_score)
         game.visitor_ft_score = int(game.visitor_ft_score)
     except:
-        return 0
+        return settings.INCORRECT_RESULT + bonus_points
 
     if bet.home_ft_score == game.home_ft_score and bet.visitor_ft_score == game.visitor_ft_score:
-        return 5
+        return settings.CORRECT_SCORE + bonus_points
 
     if bet.home_ft_score - bet.visitor_ft_score == game.home_ft_score - game.visitor_ft_score:
-        return 2
+        return settings.CORRECT_DIFFERENCE + bonus_points
 
     if (bet.home_ft_score > bet.visitor_ft_score) * (game.home_ft_score > game.visitor_ft_score):
-        return 1
+        return settings.CORRECT_RESULT + bonus_points
     else:
-        return 0
+        return settings.INCORRECT_RESULT + bonus_points
 
 
 def get_user_stats(me, user, games):
@@ -69,7 +80,10 @@ def get_user_stats(me, user, games):
             "show_link": not game.started
         })
         overall_score += score
-    return {"user": user, "user_bets": user_bets, "overall_score": overall_score}
+
+    user_groups = user.groups.values_list('name', flat=True)
+
+    return {"user": user, "user_groups": user_groups, "user_bets": user_bets, "overall_score": overall_score}
 
 
 def is_time_gone(input_time):
@@ -102,6 +116,7 @@ def index(request):
     context = RequestContext(request, {
         'page' : 'index',
         'user_stats': user_stats,
+        'GROUP_GAMES': settings.GROUP_GAMES,
         'current_time': current_time
     })
     return render(request, 'bets/index.html', context)
@@ -111,7 +126,7 @@ def index(request):
 def overall(request):
 
     games = Game.objects.order_by('time')
-    users = User.objects.filter(is_staff=False)
+    users = User.objects.exclude(groups__name = "disabled").order_by("groups")
 
     all_users_stats = []
 
@@ -122,9 +137,18 @@ def overall(request):
         'page' : 'overall',
         'games': games,
         'all_users_stats': all_users_stats,
+        'GROUP_GAMES': settings.GROUP_GAMES,
         'me': request.user
     })
     return render(request, 'bets/overall.html', context)
+
+@login_required
+def rules(request):
+
+    context = RequestContext(request, {
+        'page' : 'rules'
+    })
+    return render(request, 'bets/rules.html', context)
 
 
 @login_required
@@ -163,6 +187,10 @@ def save_bet(request, game_id):
         new_bet.visitor_pen_score = request.POST["visitor_pen_score"]
     except:
         new_bet.visitor_pen_score = None
+    try:
+        new_bet.winner = request.POST["winner"]
+    except:
+        new_bet.winner = None
 
     new_bet.save()
 
@@ -184,6 +212,7 @@ def bet(request, game_id):
 
     context = RequestContext(request, {
         'game': game,
+        'GROUP_GAMES': settings.GROUP_GAMES,
         'existing_bet': existing_bet
     })
     return render(request, 'bets/bet.html', context)
