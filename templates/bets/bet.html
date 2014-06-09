@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-{% include "bets/navigation.html" %}
 
 <form action="/bets/{{ game.id }}/save" method="post">
     {% csrf_token %}
