@@ -196,6 +196,48 @@ def save_bet(request, game_id):
 
     return HttpResponseRedirect("/")
 
+
+@login_required
+def save_game_score(request, game_id):
+
+
+    game = Game.objects.get(pk=request.POST["game"])
+
+    try:
+        game.home_ft_score = request.POST["home_ft_score"]
+    except:
+        game.home_ft_score = None
+    try:
+        game.visitor_ft_score = request.POST["visitor_ft_score"]
+    except:
+        game.visitor_ft_score = None
+    try:
+        game.home_et_score = request.POST["home_et_score"]
+    except:
+        game.home_et_score = None
+    try:
+        game.visitor_et_score = request.POST["visitor_et_score"]
+    except:
+        game.visitor_et_score = None
+    try:
+        game.home_pen_score = request.POST["home_pen_score"]
+    except:
+        game.home_pen_score = None
+    try:
+        game.visitor_pen_score = request.POST["visitor_pen_score"]
+    except:
+        game.visitor_pen_score = None
+    try:
+        game.winner = request.POST["winner"]
+    except:
+        game.winner = None
+
+    game.save()
+
+    return HttpResponseRedirect("/")
+
+
+
 @login_required
 def bet(request, game_id):
     user = request.user
@@ -213,6 +255,25 @@ def bet(request, game_id):
     context = RequestContext(request, {
         'game': game,
         'GROUP_GAMES': settings.GROUP_GAMES,
-        'existing_bet': existing_bet
+        'existing_bet': existing_bet,
+        'is_available': not is_time_gone(utc_to_local(game.time))
+
     })
     return render(request, 'bets/bet.html', context)
+@login_required
+
+
+def game_score(request, game_id):
+    user = request.user
+    try:
+        game = Game.objects.get(pk=game_id)
+    except Game.DoesNotExist:
+        raise Http404
+
+    context = RequestContext(request, {
+        'game': game,
+        'GROUP_GAMES': settings.GROUP_GAMES,
+        'is_available': is_time_gone(utc_to_local(game.time))
+
+    })
+    return render(request, 'bets/game-score.html', context)

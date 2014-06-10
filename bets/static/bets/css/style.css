@@ -48,12 +48,12 @@ body{
 }
 a:link {
 	color: #666;
-	text-decoration:none;
+	text-decoration:underline;
 }
 a:visited {
 	color: #666;
 	font-weight:bold;
-	text-decoration:none;
+	text-decoration:underline;
 }
 a:active,
 a:hover {
@@ -91,23 +91,21 @@ Tables Style
 
 ------------------------------------------------------------------ */
 table.personal-stats a:link,
+table.overall a:link,
 table.make-bet a:link  {
 	color: #666;
 	font-weight: bold;
-	text-decoration:underline;
 }
 table.personal-stats a:visited,
 table.make-bet a:visited  {
 	color: #999999;
 	font-weight:bold;
-	text-decoration:none;
 }
 table.personal-stats a:active,
 table.personal-stats a:hover,
 table.make-bet a:active,
 table.make-bet a:hover {
 	color: #bd5a35;
-	text-decoration:underline;
 }
 table.personal-stats,
 table.make-bet,
@@ -118,6 +116,7 @@ table.overall {
 	text-shadow: 1px 1px 0px #fff;
 	background:#eaebec;
 	border:#ccc 1px solid;
+    white-space:nowrap;
 }
 table.personal-stats th,
 table.make-bet th {
@@ -182,7 +181,11 @@ table.overall tr td{
 	background: -moz-linear-gradient(top,  #fff,  #fefefe);
 }
 
-
+table.overall tr td.overall-score{
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
 
 table.overall tr td.has-bet{
     background: #ffffbb;
@@ -259,12 +262,14 @@ table.make-bet tr:hover td{
 table.personal-stats tr.available-to-bet td{
     cursor: pointer;
 }
-table.personal-stats tr.final td{
-
-	background: #f2f2f2;
+table.personal-stats tr.available-to-score td{
+    cursor: pointer;
+	background: #ffffcc;
 }
 
-
+table.personal-stats tr.available-to-score:hover td{
+	background: #ffffbb;
+}
 
 button {
 	position:relative;
