@@ -5,8 +5,12 @@
 
 <head>
     <script src="http://yandex.st/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://yandex.st/jquery-ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="{% static 'smoothTouchScroll/js/jquery.kinetic.min.js' %}"></script>
+    <script src="{% static 'smoothTouchScroll/js/jquery.smoothTouchScroll.min.js' %}"></script>
     <script src="{% static 'bets/js/scripts.js' %}"></script>
     <link rel="stylesheet" href="{% static 'bets/css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'smoothTouchScroll/css/smoothTouchScroll.css' %}" />
 
     <title>{% block title %}Bets: World Cup 2014{% endblock %}</title>
 </head>
@@ -22,7 +26,7 @@
     {% endblock %}
     </header>
     {% include "bets/navigation.html" %}
-    <div id="content">
+    <div id="content" class="{{ page }}">
     {% block content %}{% endblock %}
     </div>
 

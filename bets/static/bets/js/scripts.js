@@ -9,8 +9,9 @@ $("table.personal-stats tbody tr.available-to-bet").click(function(){
 
     window.location.href = "/bets/" + $(this).data("game-id");
 
-})
+});
 
+$("#content.overall").smoothTouchScroll();
 
 
 });
