@@ -1,11 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-<style>
-    .has-bet{
-        background: #eeee99;
-    }
-</style>
 
     <table  class = "overall" border="0" cellspacing = 0>
     <thead>
@@ -70,7 +65,8 @@
 
                 </a>
                 </td>
-                 <td>
+                 <td align = "center">
+
                 {% if user_bet.bet.game.home_ft_score and user_bet.bet.game.visitor_ft_score %}
                     {{ user_bet.score }}
                 {% endif %}

@@ -17,8 +17,9 @@
         <th>Очки</th>
     </tr>
     </thead>
+        <tbody>
     {% for user_bet in user_stats.user_bets %}
-    <tbody>
+
         <tr data-game-id = "{{ user_bet.game.id }}" class = "
             {% if not user_bet.show_link %}
                 final
@@ -80,9 +81,9 @@
            {{ user_bet.score }}
         </td>
         </tr>
-    </tbody>
 
     {% endfor %}
+    </tbody>
     </table>
 {% else %}
     <p>No games are available.</p>

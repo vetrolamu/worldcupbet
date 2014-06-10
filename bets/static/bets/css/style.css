@@ -74,6 +74,7 @@ div.login{
 div#content{
     padding: 20px;
     font-size: 16px;
+    overflow: auto;
 }
 
 div.rules{
@@ -118,6 +119,7 @@ table.overall {
 	background:#eaebec;
 	border:#ccc 1px solid;
 
+
 }
 table.personal-stats th,
 table.make-bet th {
@@ -152,11 +154,22 @@ table.make-bet tr{
 	padding-left:20px;
 }
 table.personal-stats tr td:first-child,
+table.overall tr td:first-child,
 table.make-bet tr td:first-child{
 	text-align: left;
-	padding-left:20px;
 	border-left: 0;
 }
+
+
+table.overall tr td:first-child{
+    border-left: 3px solid #fffc83;
+}
+
+table.overall tr.free td:first-child{
+    border-left: 3px solid #96cb92;
+}
+
+
 table.personal-stats tr td,
 table.make-bet tr td,
 table.overall tr td{
@@ -172,18 +185,9 @@ table.overall tr td{
 }
 
 
-table.overall tr.free td{
-
-	background: #fafafa;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
-	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
-
-}
-
-
 
 table.overall tr td.has-bet{
-    background: #ffffdd;
+    background: #ffffbb;
 }
 
 table.overall tr td span,
@@ -199,6 +203,7 @@ table.personal-stats  tr td span.winner {
 
 table.overall tr th{
     padding: 5px;
+    min-width: 40px;
 	border-top: 1px solid #ffffff;
 	border-bottom:1px solid #e0e0e0;
 	border-left: 1px solid #e0e0e0;
