@@ -15,7 +15,7 @@ $("table.personal-stats tbody tr.available-to-bet").click(function(){
 
 });
 
-$("#content.overall").smoothTouchScroll();
+$(".overall-scores-wrapper").smoothTouchScroll();
 
 
 });

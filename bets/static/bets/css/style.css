@@ -74,7 +74,10 @@ div.login{
 div#content{
     padding: 20px;
     font-size: 16px;
-    overflow: auto;
+}
+
+div.clear{
+    clear: both;
 }
 
 div.rules{
@@ -86,23 +89,44 @@ div#content li{
     padding-top: 10px;
 }
 
+
+div.overall-scores-wrapper{
+    margin-left: 150px;
+}
+div.overall-names-wrapper{
+    width: 150px;
+    float: left;
+}
+
+
 /*
 Tables Style
 
 ------------------------------------------------------------------ */
+
+
+table.overall.names{
+    width: 150px;
+
+}
+
 table.personal-stats a:link,
 table.overall a:link,
 table.make-bet a:link  {
 	color: #666;
 	font-weight: bold;
+    text-decoration: none;
 }
 table.personal-stats a:visited,
 table.make-bet a:visited  {
 	color: #999999;
 	font-weight:bold;
 }
+
 table.personal-stats a:active,
 table.personal-stats a:hover,
+table.overall a:active,
+table.overall a:hover,
 table.make-bet a:active,
 table.make-bet a:hover {
 	color: #bd5a35;
@@ -157,12 +181,16 @@ table.make-bet tr td:first-child{
 	border-left: 0;
 }
 
+table.overall.scores tr td:first-child{
+    text-align: center;
 
-table.overall tr td:first-child{
+}
+
+table.overall.names tr td:first-child{
     border-left: 3px solid #fffc83;
 }
 
-table.overall tr.free td:first-child{
+table.overall.names tr.free td:first-child{
     border-left: 3px solid #96cb92;
 }
 
@@ -183,7 +211,6 @@ table.overall tr td{
 
 table.overall tr td.overall-score{
     font-weight: bold;
-    font-size: 14px;
     text-align: center;
 }
 
@@ -208,6 +235,11 @@ table.overall tr th{
 	border-top: 1px solid #ffffff;
 	border-bottom:1px solid #e0e0e0;
 	border-left: 1px solid #e0e0e0;
+}
+
+
+table.overall.names tr th, table.overall.scores tr th.overall-score-label {
+    height: 60px;
 }
 
 table.make-bet tr td input{
