@@ -35,7 +35,7 @@
             </td>
             <td class = "game-score">
                 <span class = "{% if user_bet.game.winner == 0 and user_bet.game.id > GROUP_GAMES %}winner{% endif %}">
-                {% if user_bet.game.home_ft_score %}
+                {% if user_bet.game.home_ft_score != None %}
                     {{ user_bet.game.home_ft_score }}
                 {% else %}
                     -
@@ -43,7 +43,7 @@
                 </span>
                 :
                 <span class = "{% if user_bet.game.winner == 1 and user_bet.game.id > GROUP_GAMES %}winner{% endif %}">
-                {% if user_bet.game.home_ft_score %}
+                {% if user_bet.game.visitor_ft_score != None %}
                     {{ user_bet.game.visitor_ft_score }}
                 {% else %}
                     -

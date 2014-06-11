@@ -9,6 +9,8 @@ import pytz
 from django.http import Http404
 from django.contrib.auth.models import User
 from django.conf import settings
+from collections import Counter
+import random
 
 from datetime import datetime
 
@@ -50,6 +52,56 @@ def get_score(bet, game):
     else:
         return settings.INCORRECT_RESULT + bonus_points
 
+def get_max_score(game):
+
+    users = User.objects.exclude(groups__name = "disabled").exclude(groups__name = "bots").exclude(groups__name = "free")
+    max_score = 0
+    start_time = datetime(2012, 3, 1, 10, 0).replace(tzinfo=utc)
+
+    for user in users:
+        bet = Bet.objects.filter(game = game, user = user, time__range=(start_time, game.time)).last()
+        score = get_score(bet, game)
+        if score > max_score:
+            max_score = score
+
+
+    return max_score
+
+def get_evident_bet(evident_user, game):
+    evident_bet = Bet()
+    bets = []
+    users = User.objects.exclude(groups__name = "disabled").exclude(groups__name = "bots").exclude(groups__name = "free")
+    start_time = datetime(2012, 3, 1, 10, 0).replace(tzinfo=utc)
+    evident_winner = 0
+    for user in users:
+        try:
+            bet = Bet.objects.filter(game = game, user = user, time__range=(start_time, game.time)).last()
+            if bet.winner != None:
+                evident_winner += int(bet.winner)
+            bets.append((int(bet.home_ft_score), int(bet.visitor_ft_score)))
+        except:
+            print ""
+
+    if not len(bets):
+        return None
+
+    evident_winner = int(round(float(7) / len(bets)))
+
+
+    if game.id > settings.GROUP_GAMES:
+        evident_bet.winner = evident_winner
+
+    lst = Counter(bets).most_common()
+    highest_count = max([i[1] for i in lst])
+    values = [i[0] for i in lst if i[1] == highest_count]
+    random.shuffle(values)
+    evident_bet.home_ft_score = values[0][0]
+    evident_bet.visitor_ft_score = values[0][1]
+    evident_bet.user = evident_user
+    evident_bet.game = game
+    evident_bet.time = start_time
+    evident_bet.save()
+    return evident_bet
 
 def get_user_stats(me, user, games):
     user_bets = []
@@ -65,12 +117,25 @@ def get_user_stats(me, user, games):
             user_bet = Bet.objects.filter(game=game, user=user, time__range=(start_time, game.time)).last()
         except:
             user_bet = None
+
+        if user.username == "ko" and user_bet == None and is_time_gone(game.time):
+            user_bet = get_evident_bet(user, game)
+
         if user == me:
             show_bet = True
         else:
             show_bet = game.started
 
         score = get_score(user_bet, game)
+
+
+        if user.username == "trololo" and game.home_ft_score != None and game.visitor_ft_score != None:
+            if game.id <= settings.GROUP_GAMES:
+                score = settings.CORRECT_SCORE - get_max_score(game)
+            else:
+                score = settings.CORRECT_SCORE + settings.BONUS_POINTS - get_max_score(game)
+
+
 
         user_bets.append({
             "bet": user_bet,
@@ -126,7 +191,7 @@ def index(request):
 def overall(request):
 
     games = Game.objects.order_by('time')
-    users = User.objects.exclude(groups__name = "disabled").order_by("groups")
+    users = User.objects.exclude(groups__name = "disabled").order_by("groups__name")
 
     all_users_stats = []
 
@@ -204,31 +269,31 @@ def save_game_score(request, game_id):
     game = Game.objects.get(pk=request.POST["game"])
 
     try:
-        game.home_ft_score = request.POST["home_ft_score"]
+        game.home_ft_score = int(request.POST["home_ft_score"])
     except:
         game.home_ft_score = None
     try:
-        game.visitor_ft_score = request.POST["visitor_ft_score"]
+        game.visitor_ft_score = int(request.POST["visitor_ft_score"])
     except:
         game.visitor_ft_score = None
     try:
-        game.home_et_score = request.POST["home_et_score"]
+        game.home_et_score = int(request.POST["home_et_score"])
     except:
         game.home_et_score = None
     try:
-        game.visitor_et_score = request.POST["visitor_et_score"]
+        game.visitor_et_score = int(request.POST["visitor_et_score"])
     except:
         game.visitor_et_score = None
     try:
-        game.home_pen_score = request.POST["home_pen_score"]
+        game.home_pen_score = int(request.POST["home_pen_score"])
     except:
         game.home_pen_score = None
     try:
-        game.visitor_pen_score = request.POST["visitor_pen_score"]
+        game.visitor_pen_score = int(request.POST["visitor_pen_score"])
     except:
         game.visitor_pen_score = None
     try:
-        game.winner = request.POST["winner"]
+        game.winner = int(request.POST["winner"])
     except:
         game.winner = None
 

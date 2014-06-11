@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
+
 {% block content %}
 
     <div class = "overall-names-wrapper">
         <table class = "overall names" cellpadding = "0" cellspacing = "0">
             <thead>
                 <th></th>
+                <th class="overall-score"></th>
             </thead>
             <tbody>
 
@@ -13,11 +16,21 @@
                 <tr class = "
                         {% if "free" in user_stats.user_groups %}
                               free
+                        {% elif "bots" in user_stats.user_groups %}
+                              bots
                         {% endif %}
 
                   ">
-                <td>{{ user_stats.user.first_name }} {{ user_stats.user.last_name }}</td>
+                <td
+                     {% if user_stats.user.username == "trololo" %} class = "trololo" {% endif %}
+                     {% if user_stats.user.username == "ko" %} class = "ko" {% endif %}
+
+                    >{{ user_stats.user.first_name }} {{ user_stats.user.last_name }}</td>
+                <td class="overall-score">
+                    {{ user_stats.overall_score }}
+                </td>
                 </tr>
+
             {% endfor %}
             </tbody>
         </table>
@@ -31,20 +44,20 @@
                      {% for game in games %}
                         <th colspan = 2>{{ game.home.short_name }} - {{ game.visitor.short_name }}<br>
 
-                        ({% if game.home_ft_score %}
+                        ({% if game.home_ft_score != None %}
                             {{ game.home_ft_score }}
                         {% else %}
                             -
                         {% endif %}
                         :
-                        {% if game.visitor_ft_score %}
+                        {% if game.visitor_ft_score != None %}
                             {{ game.visitor_ft_score }}
                         {% else %}
                             -
                         {% endif %})</th>
                      {% endfor %}
 
-                        <th rowspan="2" class="overall-score-label">Overall score</th>
+                        <th rowspan="2" class="overall-score">Overall score</th>
                 </tr>
                 <tr>
 
@@ -68,9 +81,7 @@
                         {% if user_bet.show_link %}
                             <a href = "/bets/{{ user_bet.bet.game.id }}">
                         {% endif %}
-
                         {% if  user_bet.show_bet == True  and user_bet.bet %}
-
 
 
                             <span class = "{% if user_bet.bet.winner == 0 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">{{ user_bet.bet.home_ft_score }}</span>
@@ -83,12 +94,13 @@
                         </td>
                          <td align = "center">
 
-                        {% if user_bet.bet.game.home_ft_score and user_bet.bet.game.visitor_ft_score %}
+                        {% if user_bet.game.home_ft_score != None and user_bet.game.visitor_ft_score != None %}
                             {{ user_bet.score }}
                         {% endif %}
 
                         </td>
                      {% endfor %}
+
                         <td class="overall-score">
                             {{ user_stats.overall_score }}
                         </td>

@@ -91,10 +91,10 @@ div#content li{
 
 
 div.overall-scores-wrapper{
-    margin-left: 150px;
+    margin-left: 195px;
 }
 div.overall-names-wrapper{
-    width: 150px;
+    width: 195px;
     float: left;
 }
 
@@ -106,8 +106,13 @@ Tables Style
 
 
 table.overall.names{
-    width: 150px;
+    width: 100%;
 
+}
+
+
+table.overall tbody td{
+    height: 14px;
 }
 
 table.personal-stats a:link,
@@ -193,6 +198,9 @@ table.overall.names tr td:first-child{
 table.overall.names tr.free td:first-child{
     border-left: 3px solid #96cb92;
 }
+table.overall.names tr.bots td:first-child{
+    border-left:  3px solid #fffc83;
+}
 
 
 table.personal-stats tr td,
@@ -203,15 +211,7 @@ table.overall tr td{
 	border-top: 1px solid #ffffff;
 	border-bottom:1px solid #e0e0e0;
 	border-left: 1px solid #e0e0e0;
-
-	background: #fefefe;
-	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#fefefe));
-	background: -moz-linear-gradient(top,  #fff,  #fefefe);
-}
-
-table.overall tr td.overall-score{
-    font-weight: bold;
-    text-align: center;
+	background-color: #fefefe;
 }
 
 table.overall tr td.has-bet{
@@ -238,9 +238,15 @@ table.overall tr th{
 }
 
 
-table.overall.names tr th, table.overall.scores tr th.overall-score-label {
+table.overall tr th.overall-score{
+    min-width: 35px;
     height: 60px;
 }
+table.overall tr td.overall-score{
+    font-weight: bold;
+    text-align: center;
+}
+
 
 table.make-bet tr td input{
     width: 40px;
@@ -300,6 +306,19 @@ table.personal-stats tr.available-to-score td{
 
 table.personal-stats tr.available-to-score:hover td{
 	background: #ffffbb;
+}
+
+table.overall td.trololo{
+    background-image: url(../img/trollface.png);
+    background-repeat: no-repeat;
+    background-position: right 5px;
+
+}
+table.overall td.ko{
+    background-image: url(../img/ko.png);
+    background-repeat: no-repeat;
+    background-position: right -5px;
+
 }
 
 button {
