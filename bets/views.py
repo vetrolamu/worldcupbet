@@ -104,6 +104,9 @@ def get_evident_bet(evident_user, game):
     return evident_bet
 
 def get_user_stats(me, user, games):
+
+    current_time = utc_to_local(datetime.utcnow())
+
     user_bets = []
     overall_score = 0
     for game in games:
@@ -111,7 +114,7 @@ def get_user_stats(me, user, games):
         game.local_time = utc_to_local(game.time)
         game.started = is_time_gone(game.local_time)
         game.display_time = game.local_time.strftime('%d.%m.%Y %H:%M')
-
+        game.countdown = game.time - current_time
         start_time = datetime(2012, 3, 1, 10, 0).replace(tzinfo=utc)
         try:
             user_bet = Bet.objects.filter(game=game, user=user, time__range=(start_time, game.time)).last()
@@ -163,26 +166,12 @@ def is_time_gone(input_time):
 @login_required
 def index(request):
 
-    current_time = time.localtime()
     games = Game.objects.order_by('time')
-
     user_stats = get_user_stats(request.user, request.user, games)
-
-
-    for game in games:
-        game.time = utc_to_local(game.time)
-        game.display_time = game.time.strftime('%d.%m.%Y %H:%M')
-        try:
-            game.my_bet = Bet.objects.filter(game = game, user = request.user).last()
-        except:
-            game.my_bet = None
-
-    current_time = time.strftime('%d.%m.%Y %H:%M:%S', current_time)
     context = RequestContext(request, {
         'page' : 'index',
         'user_stats': user_stats,
-        'GROUP_GAMES': settings.GROUP_GAMES,
-        'current_time': current_time
+        'GROUP_GAMES': settings.GROUP_GAMES
     })
     return render(request, 'bets/index.html', context)
 

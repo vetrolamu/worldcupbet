@@ -20,7 +20,10 @@
         <tbody>
     {% for user_bet in user_stats.user_bets %}
 
-        <tr data-game-id = "{{ user_bet.game.id }}" class = "
+        <tr title = "До матча осталось:
+        {% if user_bet.show_link %}{{ user_bet.game.countdown  }}{% endif %}
+
+        "  data-game-id = "{{ user_bet.game.id }}" class = "
             {% if not user_bet.show_link %}
                 available-to-score
             {% else %}
