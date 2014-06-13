@@ -47,7 +47,7 @@ def get_score(bet, game):
     if bet.home_ft_score - bet.visitor_ft_score == game.home_ft_score - game.visitor_ft_score:
         return settings.CORRECT_DIFFERENCE + bonus_points
 
-    if (bet.home_ft_score > bet.visitor_ft_score) * (game.home_ft_score > game.visitor_ft_score):
+    if (bet.home_ft_score > bet.visitor_ft_score) and (game.home_ft_score > game.visitor_ft_score) or (bet.home_ft_score < bet.visitor_ft_score) and (game.home_ft_score < game.visitor_ft_score):
         return settings.CORRECT_RESULT + bonus_points
     else:
         return settings.INCORRECT_RESULT + bonus_points
