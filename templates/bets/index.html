@@ -1,8 +1,9 @@
 {% extends "base.html" %}
+
 {% load i18n %}
+{% load staticfiles %}
+
 {% block content %}
-
-
 
 {% if user_stats %}
 
@@ -13,17 +14,15 @@
     <tr>
         <th>Время начала</th>
         <th colspan="3">Игра</th>
-        <th>Моя ставка</th>
+        <th class="my-bet">Моя ставка</th>
         <th>Очки</th>
+        <th></th>
     </tr>
     </thead>
         <tbody>
     {% for user_bet in user_stats.user_bets %}
 
-        <tr title = "До матча осталось:
-        {% if user_bet.show_link %}{{ user_bet.game.countdown  }}{% endif %}
-
-        "  data-game-id = "{{ user_bet.game.id }}" class = "
+        <tr  data-game-id = "{{ user_bet.game.id }}" class = "
             {% if not user_bet.show_link %}
                 available-to-score
             {% else %}
@@ -31,12 +30,12 @@
             {% endif %}
             "
         >
-            <td>{{ user_bet.game.local_time  }}</td>
-            <td class = "home">
+            <td class="fast-edit">{{ user_bet.game.local_time  }}</td>
+            <td class = "home fast-edit">
                     {{ user_bet.game.home }}
 
             </td>
-            <td class = "game-score">
+            <td class = "game-score fast-edit">
                 <span class = "{% if user_bet.game.winner == 0 and user_bet.game.id > GROUP_GAMES %}winner{% endif %}">
                 {% if user_bet.game.home_ft_score != None %}
                     {{ user_bet.game.home_ft_score }}
@@ -53,7 +52,7 @@
                 {% endif %}
                 </span>
             </td>
-            <td  class = "visitor">
+            <td  class = "visitor fast-edit">
 
                 {{ user_bet.game.visitor }}
 
@@ -63,25 +62,25 @@
 
 
 
-                <span class = "{% if user_bet.bet.winner == 0 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">
-                {% if user_bet.bet.home_ft_score != None  %}
-                    {{ user_bet.bet.home_ft_score }}
-                {% else %}
-
-                    -
-                {% endif %}
-                </span>
-                :
-                <span class = "{% if user_bet.bet.winner == 1 and user_bet.bet.game.id > GROUP_GAMES %}winner{% endif %}">
-                {% if user_bet.bet.visitor_ft_score != None %}
-                    {{ user_bet.bet.visitor_ft_score }}
-                {% else %}
-                    -
-                {% endif %}
-                </span>
+                 <a href = "#"
+                               data-pk="{{ user_bet.game.id }}"
+                               data-type="score"
+                               data-mode="inline"
+                               data-params="{csrfmiddlewaretoken:'{{csrf_token}}'}"
+                               class = "make-bet-fast"
+                               data-url="/bets/{{ user_bet.game.id }}/save-live"
+                               data-value = "{ 'is_playoff': {% if user_bet.game.id > GROUP_GAMES %}1{% else %}0{% endif %}, 'winner': '{{ user_bet.bet.winner }}', 'home_ft_score': '{{ user_bet.bet.home_ft_score }}', 'visitor_ft_score': '{{ user_bet.bet.visitor_ft_score }}'}"
+                               data-title="Изменить ставку">
+                 </a>
             </td>
-        <td class="user-score">
+        <td class="user-score fast-edit">
            {{ user_bet.score }}
+        </td>
+        <td>
+            {% if user_bet.show_link %}
+
+            <a href="/bets/{{ user_bet.game.id }}/">old edit</a>
+            {% endif %}
         </td>
         </tr>
 

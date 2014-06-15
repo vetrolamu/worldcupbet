@@ -124,7 +124,7 @@ table.make-bet a:link  {
 }
 table.personal-stats a:visited,
 table.make-bet a:visited  {
-	color: #999999;
+	color: #666;
 	font-weight:bold;
 }
 
@@ -161,6 +161,9 @@ table.personal-stats th:first-child,
 table.make-bet th:first-child{
 	text-align: left;
 	padding-left:20px;
+}
+
+table.personal-stats td.prediction{
 }
 table.personal-stats tr:first-child th:first-child,
 table.make-bet tr:first-child th:first-child{
@@ -296,9 +299,6 @@ table.personal-stats tr:hover td{
 	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
 }
 
-table.personal-stats tr.available-to-bet td{
-    cursor: pointer;
-}
 table.personal-stats tr.available-to-score td{
     cursor: pointer;
 	background: #ffffcc;
@@ -306,6 +306,14 @@ table.personal-stats tr.available-to-score td{
 
 table.personal-stats tr.available-to-score:hover td{
 	background: #ffffbb;
+}
+
+table.personal-stats tr.available-to-score .make-bet-fast{
+    border: none;
+}
+
+table.personal-stats tr.available-to-bet td.fast-edit{
+        cursor: pointer;
 }
 
 table.overall td.trololo{
@@ -321,7 +329,7 @@ table.overall td.ko{
 
 }
 
-button {
+button.save-bet, button.save-score  {
 	position:relative;
     top:0px;
     left:0px;
@@ -471,4 +479,10 @@ button:active {
   .top-menu ul li:last-child > a:before {
     display: none;
   }
+}
+
+
+.editable-input input{
+    width: 35px;
+    text-align: center;
 }
