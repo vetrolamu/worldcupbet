@@ -27,3 +27,6 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 
 db.sqlite3
+
+# python
+*.pyc
