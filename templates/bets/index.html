@@ -76,10 +76,10 @@
         <td class="user-score fast-edit">
            {{ user_bet.score }}
         </td>
-        <td>
+        <td class = "old-edit">
             {% if user_bet.show_link %}
 
-            <a href="/bets/{{ user_bet.game.id }}/">old edit</a>
+            <a href="/bets/{{ user_bet.game.id }}/" alt = "old edit" title="old fashioned edit"><img width="16" height="16" src="{% static 'bets/img/edit.png' %}" /></a>
             {% endif %}
         </td>
         </tr>

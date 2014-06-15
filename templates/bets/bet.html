@@ -19,7 +19,7 @@
         <tbody>
             <tr>
                 <td>{{ game.home  }}</td>
-                <td><input name = "home_ft_score" value="{% if existing_bet and existing_bet.home_ft_score %}{{ existing_bet.home_ft_score  }}{% endif %}"/></td>
+                <td><input type="number" name = "home_ft_score" value="{% if existing_bet and existing_bet.home_ft_score %}{{ existing_bet.home_ft_score  }}{% endif %}"/></td>
                 <td><input type = "radio" name = "winner" value="0"
 
                     {% if game.id <= GROUP_GAMES %}
@@ -32,7 +32,7 @@
 
             <tr>
                 <td>{{ game.visitor  }}</td>
-                <td><input name = "visitor_ft_score" value="{% if existing_bet and existing_bet.visitor_ft_score %}{{ existing_bet.visitor_ft_score  }}{% endif %}"/></td>
+                <td><input type="number" name = "visitor_ft_score" value="{% if existing_bet and existing_bet.visitor_ft_score %}{{ existing_bet.visitor_ft_score  }}{% endif %}"/></td>
                 <td>
                     <input type = "radio" name = "winner" value="1"
 

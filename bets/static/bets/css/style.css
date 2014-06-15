@@ -217,6 +217,10 @@ table.overall tr td{
 	background-color: #fefefe;
 }
 
+
+table.personal-stats tr td.old-edit {
+    padding:2px;
+}
 table.overall tr td.has-bet{
     background: #ffffbb;
 }
