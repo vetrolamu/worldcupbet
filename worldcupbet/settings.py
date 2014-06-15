@@ -69,7 +69,7 @@ GROUP_GAMES = 48
 SECRET_KEY = '9#c64(k0s35b5ie&k(1khe!*s-ou11gq)rkc(2ix!slpb1$^qv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 REGISTRATION_OPEN = True

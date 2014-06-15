@@ -47,14 +47,14 @@ def get_score(bet, game):
     if bet.home_ft_score - bet.visitor_ft_score == game.home_ft_score - game.visitor_ft_score:
         return settings.CORRECT_DIFFERENCE + bonus_points
 
-    if (bet.home_ft_score > bet.visitor_ft_score) * (game.home_ft_score > game.visitor_ft_score):
+    if (bet.home_ft_score > bet.visitor_ft_score) and (game.home_ft_score > game.visitor_ft_score) or (bet.home_ft_score < bet.visitor_ft_score) and (game.home_ft_score < game.visitor_ft_score):
         return settings.CORRECT_RESULT + bonus_points
     else:
         return settings.INCORRECT_RESULT + bonus_points
 
 def get_max_score(game):
 
-    users = User.objects.exclude(groups__name = "disabled").exclude(groups__name = "bots").exclude(groups__name = "free")
+    users = User.objects.filter(groups__name = "-money-")
     max_score = 0
     start_time = datetime(2012, 3, 1, 10, 0).replace(tzinfo=utc)
 
@@ -63,14 +63,12 @@ def get_max_score(game):
         score = get_score(bet, game)
         if score > max_score:
             max_score = score
-
-
     return max_score
 
 def get_evident_bet(evident_user, game):
     evident_bet = Bet()
     bets = []
-    users = User.objects.exclude(groups__name = "disabled").exclude(groups__name = "bots").exclude(groups__name = "free")
+    users = User.objects.filter(groups__name = "-money-")
     start_time = datetime(2012, 3, 1, 10, 0).replace(tzinfo=utc)
     evident_winner = 0
     for user in users:
@@ -180,7 +178,7 @@ def index(request):
 def overall(request):
 
     games = Game.objects.order_by('time')
-    users = User.objects.exclude(groups__name = "disabled").order_by("groups__name")
+    users = User.objects.filter(groups__name__in = ["-money-", "free", "bots"]).order_by("groups__name")
 
     all_users_stats = []
 
@@ -206,87 +204,84 @@ def rules(request):
 
 
 @login_required
-def save_bet(request, game_id):
+def save_bet(request, game_id, mode):
 
     new_bet = Bet()
 
-    game = Game.objects.get(pk=request.POST["game"])
+    game = Game.objects.get(pk=game_id)
     user = request.user
 
     new_bet.game = game
     new_bet.user = user
 
-
-    try:
-        new_bet.home_ft_score = request.POST["home_ft_score"]
-    except:
-        new_bet.home_ft_score = None
-    try:
-        new_bet.visitor_ft_score = request.POST["visitor_ft_score"]
-    except:
-        new_bet.visitor_ft_score = None
-    try:
-        new_bet.home_et_score = request.POST["home_et_score"]
-    except:
-        new_bet.home_et_score = None
-    try:
-        new_bet.visitor_et_score = request.POST["visitor_et_score"]
-    except:
-        new_bet.visitor_et_score = None
-    try:
-        new_bet.home_pen_score = request.POST["home_pen_score"]
-    except:
-        new_bet.home_pen_score = None
-    try:
-        new_bet.visitor_pen_score = request.POST["visitor_pen_score"]
-    except:
-        new_bet.visitor_pen_score = None
-    try:
-        new_bet.winner = request.POST["winner"]
-    except:
-        new_bet.winner = None
+    if mode == "live":
+        try:
+            new_bet.home_ft_score = request.POST["value[home_ft_score]"]
+        except:
+            new_bet.home_ft_score = None
+        try:
+            new_bet.visitor_ft_score = request.POST["value[visitor_ft_score]"]
+        except:
+            new_bet.visitor_ft_score = None
+        try:
+            new_bet.winner = request.POST["value[winner]"]
+        except:
+            new_bet.winner = None
+    else:
+        try:
+            new_bet.home_ft_score = request.POST["home_ft_score"]
+        except:
+            new_bet.home_ft_score = None
+        try:
+            new_bet.visitor_ft_score = request.POST["visitor_ft_score"]
+        except:
+            new_bet.visitor_ft_score = None
+        try:
+            new_bet.winner = request.POST["winner"]
+        except:
+            new_bet.winner = None
 
     new_bet.save()
-
     return HttpResponseRedirect("/")
 
 
 @login_required
 def save_game_score(request, game_id):
 
+    if request.user.groups.filter(name__in=['-money-','free']):
 
-    game = Game.objects.get(pk=request.POST["game"])
+        game = Game.objects.get(pk=game_id)
 
-    try:
-        game.home_ft_score = int(request.POST["home_ft_score"])
-    except:
-        game.home_ft_score = None
-    try:
-        game.visitor_ft_score = int(request.POST["visitor_ft_score"])
-    except:
-        game.visitor_ft_score = None
-    try:
-        game.home_et_score = int(request.POST["home_et_score"])
-    except:
-        game.home_et_score = None
-    try:
-        game.visitor_et_score = int(request.POST["visitor_et_score"])
-    except:
-        game.visitor_et_score = None
-    try:
-        game.home_pen_score = int(request.POST["home_pen_score"])
-    except:
-        game.home_pen_score = None
-    try:
-        game.visitor_pen_score = int(request.POST["visitor_pen_score"])
-    except:
-        game.visitor_pen_score = None
-    try:
-        game.winner = int(request.POST["winner"])
-    except:
-        game.winner = None
+        try:
+            game.home_ft_score = int(request.POST["home_ft_score"])
+        except:
+            game.home_ft_score = None
+        try:
+            game.visitor_ft_score = int(request.POST["visitor_ft_score"])
+        except:
+            game.visitor_ft_score = None
+        try:
+            game.home_et_score = int(request.POST["home_et_score"])
+        except:
+            game.home_et_score = None
+        try:
+            game.visitor_et_score = int(request.POST["visitor_et_score"])
+        except:
+            game.visitor_et_score = None
+        try:
+            game.home_pen_score = int(request.POST["home_pen_score"])
+        except:
+            game.home_pen_score = None
+        try:
+            game.visitor_pen_score = int(request.POST["visitor_pen_score"])
+        except:
+            game.visitor_pen_score = None
+        try:
+            game.winner = int(request.POST["winner"])
+        except:
+            game.winner = None
 
-    game.save()
+        game.save()
 
     return HttpResponseRedirect("/")
 
