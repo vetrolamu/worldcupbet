@@ -490,3 +490,13 @@ button:active {
     width: 35px;
     text-align: center;
 }
+
+
+td.old-edit img{
+    opacity: 0.8;
+    filter:alpha(opacity=80);
+}
+td.old-edit img:hover{
+    opacity: 1;
+    filter:alpha(opacity=100);
+}
