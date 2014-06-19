@@ -18,7 +18,6 @@
         },
 
         value2html: function (value, element) {
-            console.log(value);
             var display_home_ft_score;
             var display_visitor_ft_score;
             var class_home_ft_score = "";
