@@ -42,16 +42,22 @@
             <thead>
                 <tr>
                      {% for game in games %}
-                        <th colspan = 2>{{ game.home.short_name }} - {{ game.visitor.short_name }}<br>
+                        <th colspan = "2" {%  if first_game_to_show.id == game.id %} class = "first_game_to_show" {% endif %} ">
+
+                            <span class = "{% if game.winner == 0 and game.id > GROUP_GAMES  %}winner{% elif game.winner == 1 %}loser{% endif %}">{{ game.home.short_name }}</span>
+                         -
+                            <span class = "{% if game.winner == 1 and game.id > GROUP_GAMES  %}winner{% elif game.winner == 0 %}loser{% endif %}">{{ game.visitor.short_name }}</span>
+
+                         <br>
 
                         ({% if game.home_ft_score != None %}
-                            {{ game.home_ft_score }}
+                            <span class = "{% if game.winner == 0 and game.id > GROUP_GAMES  %}winner{% elif game.winner == 1 %}loser{% endif %}">{{ game.home_ft_score }}</span>
                         {% else %}
                             -
                         {% endif %}
                         :
                         {% if game.visitor_ft_score != None %}
-                            {{ game.visitor_ft_score }}
+                            <span class = "{% if game.winner == 1 and game.id > GROUP_GAMES  %}winner{% elif game.winner == 0 %}loser{% endif %}">{{ game.visitor_ft_score }}</span>
                         {% else %}
                             -
                         {% endif %})</th>
@@ -79,22 +85,32 @@
                         ">
 
                         {% if user_bet.show_link %}
-                            <a href = "/bets/{{ user_bet.bet.game.id }}">
-                        {% endif %}
-                        {% if  user_bet.show_bet == True  and user_bet.bet %}
 
+                            {% if  user_bet.show_bet == True %}
 
-                            <span class = "{% if user_bet.bet.winner == 0 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">{{ user_bet.bet.home_ft_score }}</span>
+                                   <a href = "#"
+                                   data-pk="{{ user_bet.game.id }}"
+                                   data-type="score"
+                                   data-params="{csrfmiddlewaretoken:'{{csrf_token}}'}"
+                                   class = "make-bet-fast"
+                                   data-url="/bets/{{ user_bet.game.id }}/save-live"
+                                   data-value = "{ 'is_playoff': {% if user_bet.game.id > GROUP_GAMES %}1{% else %}0{% endif %}, 'winner': '{{ user_bet.bet.winner }}', 'home_ft_score': '{{ user_bet.bet.home_ft_score }}', 'visitor_ft_score': '{{ user_bet.bet.visitor_ft_score }}'}"
+                                   data-title="{{ user_bet.game }}">
+                                    </a>
+                            {% endif %}
+
+                        {% elif user_bet.bet %}
+
+                            <span class = "{% if user_bet.bet.winner == 0 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% elif user_bet.bet.winner == 1 %}loser{% endif %}">{{ user_bet.bet.home_ft_score }}</span>
                                 :
-                            <span class = "{% if user_bet.bet.winner == 1 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% endif %}">{{ user_bet.bet.visitor_ft_score }}</span>
+                            <span class = "{% if user_bet.bet.winner == 1 and user_bet.bet.game.id > GROUP_GAMES  %}winner{% elif user_bet.bet.winner == 0 %}loser{% endif %}">{{ user_bet.bet.visitor_ft_score }}</span>
 
-                        {% endif %}
+                        {%endif %}
 
-                        </a>
                         </td>
                          <td align = "center">
 
-                        {% if user_bet.game.home_ft_score != None and user_bet.game.visitor_ft_score != None %}
+                        {% if user_bet.game.home_ft_score != None and user_bet.game.visitor_ft_score != None and user_bet.game.started %}
                             {{ user_bet.score }}
                         {% endif %}
 

@@ -22,11 +22,16 @@ $(function(){
     });
 
 
+    $(".overall-scores-wrapper").smoothTouchScroll();
     $('table.personal-stats tbody tr.available-to-bet td.fast-edit').on('click', function(e) {
         e.stopPropagation();
         $(this).parent().find('.make-bet-fast').editable("toggle");
     });
 
-    $(".overall-scores-wrapper").smoothTouchScroll();
+
+    $('.scrollWrapper').stop().animate({
+        scrollLeft: $(".first_game_to_show").position().left
+    }, 0);
+
 
 });

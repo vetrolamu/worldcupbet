@@ -3,7 +3,6 @@
 {% block content %}
 <h2>Результат: {{ game }}</h2>
 
-{% if is_available %}
 
 <form action="/bets/game-score/{{ game.id }}/save" method="post">
     {% csrf_token %}
@@ -53,8 +52,5 @@
 <button type="submit" class="save-score">Save</button>
 </form>
 
-{% else %}
-    Ещё нельзя задать результат этого матча. Но можно сделать <a href="/bets/{{ game.id }}">ставку</a>
-{% endif %}
 
 {% endblock %}

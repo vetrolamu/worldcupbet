@@ -12,7 +12,7 @@ from django.conf import settings
 from collections import Counter
 import random
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 local_tz = pytz.timezone('Europe/Moscow') # use your local timezone name here
 # Create your views here.
@@ -145,7 +145,8 @@ def get_user_stats(me, user, games):
             "show_bet": show_bet,
             "show_link": not game.started
         })
-        overall_score += score
+        if game.started:
+            overall_score += score
 
     user_groups = user.groups.values_list('name', flat=True)
 
@@ -180,6 +181,13 @@ def overall(request):
     games = Game.objects.order_by('time')
     users = User.objects.filter(groups__name__in = ["-money-", "free", "bots"]).order_by("groups__name", "id")
 
+    current_time = utc_to_local(datetime.utcnow())
+
+    start_time = current_time - timedelta(days=2)
+
+    latest_finished_games = Game.objects.filter(time__range=(start_time, current_time))
+    first_game_to_show = latest_finished_games.first()
+
     all_users_stats = []
 
     for user in users:
@@ -188,6 +196,7 @@ def overall(request):
     context = RequestContext(request, {
         'page' : 'overall',
         'games': games,
+        'first_game_to_show': first_game_to_show,
         'all_users_stats': all_users_stats,
         'GROUP_GAMES': settings.GROUP_GAMES,
         'me': request.user

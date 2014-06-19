@@ -25,14 +25,14 @@
             var class_visitor_ft_score = "";
             if (value.home_ft_score){
                display_home_ft_score = value.home_ft_score;
-               if (value.winner == 0){class_home_ft_score = "winner"}
+               if (value.winner == 0){class_home_ft_score = "winner"}else if (value.winner == 1){class_home_ft_score = "loser"}
 
             } else{
                display_home_ft_score = "-";
             }
             if (value.visitor_ft_score){
                display_visitor_ft_score = value.visitor_ft_score;
-               if (value.winner == 1){class_visitor_ft_score = "winner"}
+               if (value.winner == 1){class_visitor_ft_score = "winner"}else if (value.winner == 0){class_visitor_ft_score = "loser"}
 
             } else{
                display_visitor_ft_score = "-";
